@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/blackswan/static/css/main.f855e6bc.css",
+    "main.js": "/blackswan/static/js/main.b5ac63c4.js",
+    "index.html": "/blackswan/index.html",
+    "main.f855e6bc.css.map": "/blackswan/static/css/main.f855e6bc.css.map",
+    "main.b5ac63c4.js.map": "/blackswan/static/js/main.b5ac63c4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.b5ac63c4.js"
+  ]
+}

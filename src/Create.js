@@ -18,9 +18,12 @@ const Create = () =>{
         // blog is an Object
 
         setIsPending(true);
-        fetch('http://localhost:8000/blogs',{
+        fetch('https://api.jsonbin.io/v3/b/6738828ead19ca34f8cb06e3',{
             method:'POST',
-            headers:{"Content-Type": "application/json"},
+            headers:{
+                "Content-Type": "application/json",
+                "X-Master-Key": "$2a$10$dahKbjy0qrxovPwGBGu4mO5eWfNYwnxbvHdgkRJuuG3qLfkaKc/Z."
+            },
             body :JSON.stringify(blog)
         }).then(()=>{
             console.log('blog added');

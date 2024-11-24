@@ -4,7 +4,7 @@ import useFetch from './useFetch';
 const BlogDetails = () =>{
     const history= useHistory();
     const{id}=useParams();
-    const {data:blog, error, isPending} =  useFetch('http://localhost:8000/blogs/'+id);
+    const {data:blog, error, isPending} = useFetch('https://api.jsonbin.io/v3/b/6738828ead19ca34f8cb06e3',`/blogs/${id}`,'$2a$10$dahKbjy0qrxovPwGBGu4mO5eWfNYwnxbvHdgkRJuuG3qLfkaKc/Z.');
     const deleteHandler =  () =>{
         fetch('http://localhost:8000/blogs/'+id,{
             method:'DELETE'

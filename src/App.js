@@ -14,16 +14,16 @@ function App() {
       <div className="App">
         <Navbar  />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/blackswan">
             <Home />
           </Route>
-          <Route path="/Create">
+          <Route path="/blackswan/Create">
             <Create />
           </Route>
-          <Route path="/blogs/:id">
+          <Route path="/blackswan/blogs/:id">
             <BlogDetails />
           </Route>
-          <Route path="/*">
+          <Route path="/blackswan/*">
             <NotFound />
           </Route>
         </Switch>

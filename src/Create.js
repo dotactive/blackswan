@@ -7,29 +7,41 @@ const Create = () =>{
     const[author, setAuthor]= useState('mario');
     const[isPending, setIsPending]=useState(false);
     const history= useHistory();
-
+    const apiKey = '$2a$10$dahKbjy0qrxovPwGBGu4mO5eWfNYwnxbvHdgkRJuuG3qLfkaKc/Z.';
+    const url = 'https://api.jsonbin.io/v3/b/6738828ead19ca34f8cb06e3';
     const backward = ()=>{
         history.go(-1);
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        const blog={title,body,author};
-        // blog is an Object
-
+        const blog={title,body,author};// blog is an Object
         setIsPending(true);
-        fetch('https://api.jsonbin.io/v3/b/6738828ead19ca34f8cb06e3',{
-            method:'POST',
-            headers:{
-                "Content-Type": "application/json",
-                "X-Master-Key": "$2a$10$dahKbjy0qrxovPwGBGu4mO5eWfNYwnxbvHdgkRJuuG3qLfkaKc/Z."
-            },
-            body :JSON.stringify(blog)
-        }).then(()=>{
-            console.log('blog added');
-            setIsPending(false);
+        try {
+            const response = await fetch(url, { 
+                method: 'GET',                 
+                headers: {  "X-Master-Key": apiKey } 
+            });
+            const data = await response.json(); 
+            const blogs = data.record.blogs || [];
+            blogs.push(blog);
+
+            // Update JSONBin with the new blogs array 
+            await fetch(url, {
+                 method: 'PUT', 
+                 headers: {
+                     "Content-Type": "application/json", 
+                     "X-Master-Key": apiKey }, 
+                     body: JSON.stringify({ blogs }) 
+                    });
+            console.log('Blog added'); 
+            setIsPending(false); 
             history.push('/');
-        })
+        }
+        catch(error){
+            console.error('Error adding blog:', error); setIsPending(false);
+        }
+
     }
     return(
         <div className="create">

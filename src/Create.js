@@ -8,7 +8,7 @@ const Create = () =>{
     const[isPending, setIsPending]=useState(false);
     const history= useHistory();
     const apiKey = '$2a$10$dahKbjy0qrxovPwGBGu4mO5eWfNYwnxbvHdgkRJuuG3qLfkaKc/Z.';
-    const url = 'https://api.jsonbin.io/v3/b/6738828ead19ca34f8cb06e3';
+    const url = 'https://api.jsonbin.io/v3/b/6751a19bacd3cb34a8b48a01';
     const backward = ()=>{
         history.go(-1);
     }
@@ -32,9 +32,9 @@ const Create = () =>{
                  headers: {
                      "Content-Type": "application/json", 
                      "X-Master-Key": apiKey }, 
-                     body: JSON.stringify({ blogs }) 
-                    });
-            console.log('Blog added'); 
+                 body: JSON.stringify({ blogs }) 
+            });
+
             setIsPending(false); 
             history.push('/');
         }
